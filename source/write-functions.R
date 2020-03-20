@@ -27,7 +27,7 @@ report_url <- function(year, quarter) {
 download_report <- function(year, quarter) {
   result <- download.file(
     report_url(year, quarter),
-    destfile = paste0("data/", year, "_", quarter, ".xls"),
+    destfile = paste0("data/", report_filename(year, quarter)),
     mode = "wb"
   )
 }
