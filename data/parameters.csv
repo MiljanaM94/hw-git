@@ -1,0 +1,63 @@
+indicator,year,quarter,sheet,range
+cpi,2010,2,za rezime inf,Q33:AI40
+cpi,2010,3,G V.0.1,T34:AL41
+cpi,2010,4,za rezime inf,Q35:AI42
+cpi,2011,1,za rezime inf,Q35:AI42
+cpi,2011,2,za rezime inf,Q36:AI43
+cpi,2011,3,za rezime inf,Q37:AJ44
+cpi,2011,4,za rezime inf,H20:AA27
+cpi,2012,1,za rezime inf,H21:AA28
+cpi,2012,2,Inflacija rezime,G23:Z30
+cpi,2012,3,Inflacija rezime,G24:Z31
+cpi,2012,4,Inflacija rezime,G25:Z32
+cpi,2013,1,Inflacija rezime,G26:Z33
+cpi,2013,2,Inflacija rezime,G27:Z34
+cpi,2013,3,Inflacija rezime,G28:Z35
+cpi,2013,4,Inflacija rezime,G29:Z36
+cpi,2014,1,Inflacija rezime,G31:Z38
+cpi,2014,2,Inflacija rezime,G32:Z39
+cpi,2014,3,Inflacija rezime,G33:Z40
+cpi,2014,4,,
+cpi,2015,1,Inflacija rezime,G35:Z42
+cpi,2015,2,Inflacija rezime,G20:Z27
+cpi,2015,3,Inflacija rezime,G20:Z27
+cpi,2015,4,Inflacija rezime,G21:Z28
+cpi,2016,1,Inflacija rezime,G19:Z26
+cpi,2016,2,Inflacija rezime,G19:Z26
+cpi,2016,3,Inflacija rezime,G19:Z26
+cpi,2016,4,Inflacija rezime,G19:Z26
+cpi,2017,1,Inflacija rezime,G19:Z26
+cpi,2017,2,Inflacija rezime,G19:Z26
+cpi,2017,3,Inflacija rezime,G20:Z26
+cpi,2017,4,Inflacija rezime,G19:Z26
+gdp,2010,2,ZA REZ BDP,E17:W24
+gdp,2010,3,G V.0.2.,G18:Y25
+gdp,2010,4,ZA REZ BDP,E17:W24
+gdp,2011,1,ZA REZ BDP,E17:W24
+gdp,2011,2,ZA REZ BDP,E18:W25
+gdp,2011,3,ZA REZ BDP,E19:X26
+gdp,2011,4,ZA REZ BDP,F20:Y27
+gdp,2012,1,ZA REZ BDP,F21:Y28
+gdp,2012,2,BDP rezime,E22:X29
+gdp,2012,3,BDP rezime,E23:X30
+gdp,2012,4,BDP rezime,E24:X31
+gdp,2013,1,BDP rezime,E25:X32
+gdp,2013,2,BDP rezime,E26:X33
+gdp,2013,3,BDP rezime,E27:X34
+gdp,2013,4,BDP rezime,E28:X35
+gdp,2014,1,BDP rezime,E30:X37
+gdp,2014,2,BDP rezime,E31:X38
+gdp,2014,3,BDP rezime,E32:X39
+gdp,2014,4,,
+gdp,2015,1,BDP rezime,F34:Y41
+gdp,2015,2,BDP rezime,F19:Y26
+gdp,2015,3,BDP rezime,F19:Y26
+gdp,2015,4,BDP rezime,F20:Y27
+gdp,2016,1,BDP rezime,F18:Y25
+gdp,2016,2,BDP rezime,F18:Y25
+gdp,2016,3,BDP rezime,F18:Y25
+gdp,2016,4,BDP rezime,F18:Y25
+gdp,2017,1,BDP rezime,F19:Y26
+gdp,2017,2,BDP rezime,F19:Y26
+gdp,2017,3,,
+gdp,2017,4,BDP rezime,F19:Y26
