@@ -1,0 +1,128 @@
+---
+title: "NBS Forecast Accuracy Report"
+subtitle: 
+author: "Risk Modeling Department"
+date: "`r Sys.Date()`"
+output: tint::tintPdf
+---
+
+```{r setup, include=FALSE}
+library(tint)
+# invalidate cache when the package version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tint'))
+options(htmltools.dir.version = FALSE)
+library(tidyverse)
+plots <- read_rds("results/plots.RDS")
+res <- read_rds("results/sensitivity.RDS")
+```
+
+# PURPOSE
+
+This report has been prepared in response to the recommendation addressed in the MRA and BSC calibration report and Management Letter.
+It reports on the accuracy of the two-year forecasts of the inflation and GDP growth rate published on the National Bank of Serbia website since May 2010.^[First available report is form November 2009. However, it was not until May 2010 that report included both gdp and inflation projection.]
+MRA and BSC macroeconomic models use NBS projections to forecast 12-month default rates and consequently probabilities of default. Therefore, DR accuracy is highly related to the accuracy of the NBS projections.
+In this analysis, we compared the actual inflation rates / GDP growth rates to the baseline forecasts. 
+
+# INFLATION RATE
+
+```{r fig1, fig.margin = TRUE, fig.cap = "Actual inflation rate", fig.width = 6, fig.height = 4, echo = FALSE}
+plots$cpi_actual
+```
+
+NBS Inflation report is published on the quarterly basis and it contains information about historical inflation rate, baseline forecast for the next eight quarters and probabilities of variuos inflation outcomes.
+
+```{r fig2, fig.width = 10, fig.height = 8, fig.cap = "Inflation rates forecast", fig.align = 'left', echo = FALSE}
+plots$cpi_prediction
+```
+
+All projections(inflation reports) can be divided into three groups:
+
+* From 2010-Q2 to 2012-Q3, where the actual inflation peaked two times (See Figure 1) and predicted inflation is almost constantly underestimated (maximum underestimation in the first predicted quarter of 5.5 p.p),
+* From 2012-Q4 to 2015-Q4, where predicted inflation is constantly overestimated and very simmilar to the actual inflation(maximum overestimation in the first predicted quarter of 4.2 p.p) and
+* From 2016-Q1 to 2017-Q4, where actual and predicted inflation mostly overlap with tendency of projection overestimation, especially in the further quarters.
+
+```{r fig3, fig.width = 10, fig.height = 4, fig.show = 'hold', fig.fullwidth = TRUE, fig.cap = "Actual vs Predicted inflation and Density", echo = FALSE}
+plots$cpi_actualvspredicted
+plots$cpi_density
+```
+
+# METRICS
+
+On average, NBS projections are slightly underestimated in all quarters. However, negative median errors indicates that in 50% cases NBS significantly underestimates the actual inflation, the most noticably in the last four quarters.
+
+Two of the most common metrics used to measure accuracy for continuous variables are *Mean absolute error* and *Root-mean-square error*. Both of them express average model prediction error, but since *Root-mean-square error* has the benefit of penalizing large errors more than *Mean absolute error*, it will be used as a final measure of the accuracy of forecasts. As expected, the further away from the actual data being used for the projections, the greater the variability in the projection.
+
+```{r fig4, fig.width = 10, fig.height = 8, fig.align = 'left', fig.cap = "Measures of difference between predicted and actual values", echo = FALSE}
+plots$cpi_metrics
+```
+\newpage
+# GDP GROWTH RATE
+
+```{r fig5, fig.margin = TRUE, fig.width = 6, fig.height = 4, fig.cap = "Actual GDP rate", echo = FALSE}
+plots$gdp_actual
+```
+
+NBS Inflation report contains the same information about GDP growth rate as for the inflation (historical rates, baseline forecast for the next eight quarters and probabilities of variuos gdp outcomes).
+
+```{r fig6, fig.width = 10, fig.height = 8, fig.align='left', fig.cap = "GDP rates forecast", echo = FALSE}
+plots$gdp_prediction
+```
+
+Actual GDP growth rates and NBS projections often overlap, with tendency of underestimation, especially in the first quarters.
+However, structural break from the middle of the 2014 caused overestimation of the projections and huge forecasting errors during 2013 and partialy 2014 (See Figure 5). As for the first quarter prediction, maximum overestimation of 2.6 p.p was in 2015-Q2, while maximum underestimation of 2.8 p.p was in 2014-Q4.
+
+```{r fig7, out.width = '50%', fig.fullwidth = TRUE, fig.show = 'hold', echo = FALSE}
+plots$gdp_actualvspredicted
+plots$gdp_density
+```
+
+# METRICS
+
+The average difference between actual GDP growth rates and NBS projections has a downward trend i.e. in the first three quarters underestimation of the NBS projections is slowly decreasing and after that, overestimation starts to increase.
+When the GDP projection is underestimated, in 50% cases it is a significant underestimation. On the other hand, median error shows that after the fifth quarter, overestimated projections are significantly overestimated while at the same time, there are more than 50% projections with an increasing underestimation. This causes the variability in the projection to increase until it reaches the maximum at the sixth quarter and than to start falling.
+
+```{r fig8, fig.width = 10, fig.height = 8, fig.align = 'left', fig.cap = "Measures of difference between predicted and actual values", echo = FALSE}
+plots$gdp_metrics
+```
+
+# SENSITIVITY ANALYSIS
+
+For all BSC and MRA macroeconomic models, an upper graph shows how much PD curve would change if we used an actual inflation rates (perfectly accurate projections) instead of NBS projections, while lower graph shows how much PD curve would change if we used perfectly accurate GDP projections instead of NBS projections.
+
+# Credit Cards
+
+```{r fig9, fig.width = 10, fig.height = 8, fig.align = 'left', echo = FALSE}
+res$cc_cpi
+```
+
+```{r fig10, fig.width = 10, fig.height = 8, fig.align = 'left', echo = FALSE}
+res$cc_gdp
+```
+
+# Consumer
+```{r fig11, fig.width = 10, fig.height = 8, fig.align = 'left', echo = FALSE}
+res$cl_cpi
+```
+
+```{r fig12, fig.width = 10, fig.height = 8, fig.align = 'left', echo = FALSE}
+res$cl_gdp
+```
+
+# SBB
+```{r fig13, fig.width = 10, fig.height = 8, fig.align = 'left', echo = FALSE}
+res$sbb_cpi
+```
+
+```{r fig14, fig.width = 10, fig.height = 8, fig.align = 'left', echo = FALSE}
+res$sbb_gdp
+```
+
+# MRA
+```{r fig15, fig.width = 10, fig.height = 8, fig.align = 'left', echo = FALSE}
+res$mra_cpi
+```
+
+```{r fig16, fig.width = 10, fig.height = 8, fig.align = 'left', echo = FALSE}
+res$mra_gdp
+```
+
